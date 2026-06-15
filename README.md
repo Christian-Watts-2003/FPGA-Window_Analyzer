@@ -4,7 +4,7 @@ A synthesizable SystemVerilog module that collects a variable-length window of 8
 
 ## What It Does
 
-On assertion of `start` and `din_valid`, the module reads the window length from the lower 4 bits of the first incoming byte, then collects that many samples into an internal 16-entry memory. It then makes two passes through the memory — one to find the maximum, one to find the minimum — and outputs the maximum followed by the range (max − min) in sequence. The `busy`, `done`, and `dout_valid` signals provide handshaking for integration into a larger system.
+On assertion of `start` and `din_valid`, the module reads the window length from the lower 4 bits of the first incoming byte, then collects that many samples into an internal 16-entry memory. It then makes two passes through the memory, one to find the maximum, one to find the minimum, and outputs the maximum followed by the range (max − min) in sequence. The `busy`, `done`, and `dout_valid` signals provide handshaking for integration into a larger system.
 
 ## FSM Design
 
@@ -14,9 +14,9 @@ The decision to compute max and min in separate states rather than a single pass
 
 ## Files
 
-- `src/window_analyzer.sv` — top-level RTL module
-- `src/tb_window_analyzer.v` — testbench
-- `docs/` — simulation screenshots, TCL console output, and Vivado timing and utilization reports
+- `src/window_analyzer.sv`: top-level RTL module
+- `src/tb_window_analyzer.v`: testbench
+- `docs/`: simulation screenshots, TCL console output, and Vivado timing and utilization reports
 
 ## Simulation Results
 
